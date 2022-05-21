@@ -1,0 +1,30 @@
+<div class="container">
+
+  <div class="secao">
+    <h3 class="text-center">Destaques do dia!</h3>
+    <h5 class="text-center">Aproveite as super ofertas que separamos para você:</h5>
+  </div>
+
+  <hr />
+
+  <div class="row">
+    <div class="col-sm-4 my-1" *ngFor="let deal of deals">
+      <div class="card">
+        <img class="card-img-top" [src]="deal.imagens[0].url">
+        <div class="card-block" style="padding: 30px">
+          <h4 class="card-title">{{ deal.titulo }}</h4>
+          <p class="card-text">{{ deal.descricao_oferta }}</p>
+          <p class="preco d-flex justify-content-center">
+            {{ deal.valor | currency:'BRL' }}
+          </p>
+          <a [routerLink]="['/deal', deal.id]" class="btn btn-outline-primary d-flex justify-content-center">
+            Ver oferta
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+</div>

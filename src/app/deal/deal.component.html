@@ -1,0 +1,82 @@
+<div class="container" style="margin: 20px;">
+  <div class="oferta" *ngIf="deal !== undefined">
+
+    <div class="row" >
+
+      <div class="col-5">
+
+        <div class="row">
+          <div class="img_capa">
+            <img [src]="deal.imagens[0].url" class="img-fluid" />
+          </div>
+        </div> 
+
+        <div class="row ">
+          <div class="thumbnails">
+            <img *ngFor="let img of deal.imagens " [src]="img.url" class="col-sm-3 img-fluid img-thumbnail" style="height: auto;"/>
+          </div>
+        </div>
+
+      </div>
+      
+      <div class="col-7">
+
+        <div class="row">
+          <div class="col">
+            <h4>{{ deal.descricao_oferta }}</h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <p>em <b>{{ deal.anunciante }}</b></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
+            <p>Por apenas</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col text-center">
+            <h1>{{ deal.valor | currency:'BRL' }}</h1>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col text-center">
+            <button
+              type="button"
+              class="btn btn-warning btn-lg"
+              (click)="addCartItem()"
+              >Adicionar ao carrinho</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row" style="margin-top: 25px; margin-bottom: 150px;">
+      <div class="col">
+        <ul class="nav nav-tabs">
+          <li class="nav-item ">
+            <a class="nav-link active" data-toggle="tab" role="tab" routerLink="how-to-use" routerLinkActive="active">Como usar?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" role="tab" routerLink="where" routerLinkActive="active">Onde fica?</a>
+          </li>
+        </ul>
+
+        
+
+        <div class="tab-content">
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
